@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <!--font Awesome css-->
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css">
+    <!--main css-->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top d-flex align-items-center"
+             style="background: url('@Url.Content("~/images/header-background.png")');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <i class="fas fa-bars d-block d-lg-none mr-3 bar"></i>
+                        <img src="~/images/oxuaz.png" alt="">
+                    </div>
+                    <div class="col-12 col-sm-8 pb-2 pb-sm-0 d-flex align-items-center">
+                        <a href="" class="about d-none d-lg-block">Haqqımızda</a>
+                        <a href="" class="reklam  d-none d-lg-block">Reklam</a>
+                        <a href=""><i class="fab fa-facebook-square facebook icon d-none d-lg-block"></i></a>
+                        <a href=""><i class="fab fa-twitter twitter icon d-none d-lg-block"></i></a>
+                        <a href=""><i class="fab fa-android android icon d-none d-lg-block"></i></a>
+                        <a href=""><i class="fab fa-apple apple icon d-none d-lg-block"></i></a>
+                        <input type="text" placeholder="Axtarış" class="search-input ml-0 ml-sm-4 mt-2 mt-sm-0">
+                        <i class="fas fa-search search-icon mt-2 mt-sm-0"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="d-none d-lg-block">
+            <div class="nav-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul>
+                                <li><a href="">Baş Səhifə</a></li>
+                                <li><a href="">Siyasət</a></li>
+                                <li><a href="">İqtisadiyyat</a></li>
+                                <li><a href="">Cəmiyyət</a></li>
+                                <li><a href="">Şou-Biznes</a></li>
+                                <li><a href="">Müharibə</a></li>
+                                <li><a href="">İdman</a></li>
+                                <li><a href="">Kriminal</a></li>
+                                <li><a href="">Mədəniyyət</a></li>
+                                <li><a href="">Dünya</a></li>
+                                <li><a href="">Avto-Moto</a></li>
+                                <li><a href="">İKT</a></li>
+                                <li><a href="">Turizm</a></li>
+                                <li><a href="">Maraqlı</a></li>
+                                <li><a href="">Müsahibə</a></li>
+                                <li><a href="">Baku TV</a></li>
+                                <li><a href="">Cinema Plus</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <div class="container ">
+                    <div class="row ml-0 mr-0">
+                        <div class="col-5 pr-0 pl-0">
+                            <a href="" class="az-corona text-center">Azərbaycanda koronavirusla bağlı xəbərlər</a>
+                        </div>
+                        <div class="col-4 pl-0 pr-0 ">
+                            <a href="" class="corona-online text-center h-100">Koronavirus Onlayn Statistika</a>
+                        </div>
+                        <a href="" class="col-3 pl-0 pr-0 all-news d-none d-lg-inline-block text-center">
+                            Bütün
+                            xəbərlər
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="nav-mobile d-block d-lg-none">
+            <div class="nav-bottom">
+                <div class="row ml-0 mr-0">
+                    <div class="col-6 pr-0 pl-0">
+                        <a href="" class="az-corona text-center">Azərbaycanda koronavirusla bağlı xəbərlər</a>
+                    </div>
+                    <div class="col-6 pl-0 pr-0 ">
+                        <a href="" class="corona-online text-center h-100">Koronavirus Onlayn Statistika</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="burger-menu d-block d-lg-none">
+            <a class="nav-item" href="/" style="background: url('@Url.Content("~/images/header-background.png")');">Baş səhifə</a>
+            <a class="nav-item" href="/politics" style="background: url('@Url.Content("~/images/header-background.png")');">Siyasət</a>
+            <a class="nav-item" href="/economy" style="background: url('@Url.Content("~/images/header-background.png")');">İqtisadiyyat</a>
+            <a class="nav-item" href="/society" style="background: url('@Url.Content("~/images/header-background.png")');">Cəmiyyət</a>
+            <a class="nav-item" href="/showbiz" style="background: url('@Url.Content("~/images/header-background.png")');">Şou-biznes</a>
+            <a class="nav-item" href="/war" style="background: url('@Url.Content("~/images/header-background.png")');">Müharibə</a>
+            <a class="nav-item" href="/sport" style="background: url('@Url.Content("~/images/header-background.png")');">İdman</a>
+            <a class="nav-item" href="/criminal" style="background: url('@Url.Content("~/images/header-background.png")');">Kriminal</a>
+            <a class="nav-item" href="/culture" style="background: url('@Url.Content("~/images/header-background.png")');">Mədəniyyət</a>
+            <a class="nav-item" href="/world" style="background: url('@Url.Content("~/images/header-background.png")');">Dünya</a>
+            <a class="nav-item" href="/auto-moto" style="background: url('@Url.Content("~/images/header-background.png")');">Avto-Moto</a>
+            <a class="nav-item" href="/ict" style="background: url('@Url.Content("~/images/header-background.png")');">İKT</a>
+            <a class="nav-item" href="/turism" style="background: url('@Url.Content("~/images/header-background.png")');">Turizm</a>
+            <a class="nav-item" href="/interesting" style="background: url('@Url.Content("~/images/header-background.png")');">Maraqlı</a>
+            <a class="nav-item" href="/interview" style="background: url('@Url.Content("~/images/header-background.png")');">Müsahibə</a>
+            <a class="nav-item" href="/tv" style="background: url('@Url.Content("~/images/header-background.png")');">Baku TV</a>
+            <a class="nav-item" href="/cinemaplus" style="background: url('@Url.Content("~/images/header-background.png")');">CinemaPlus</a>
+        </nav>
+    </header>
+
+    <main class="mt-3 mb-3">
+        @RenderBody()
+    </main>
+
+
+    <footer class="border-top footer-custom pt-3 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 h-100 align-middle" style="color: grey">
+                    2020 - oxu.az
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--scripts start-->
+    <!--jquery-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--bootstrap-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--javascript-->
+    <script src="~/js/script.js"></script>
+    <!--scripts end-->
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
