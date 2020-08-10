@@ -26,13 +26,15 @@ namespace oxu.az
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            services.AddControllers(options => options.EnableEndpointRouting = false);
 
             services.AddScoped(typeof(INewsRepository), typeof(NewsRepository));
 
             services.AddScoped(typeof(ICategoryRepository), typeof(CategoryRepository));
 
-            services.AddDbContext<NewsContext>(option => option.UseSqlServer(@"Server=DESKTOP-OR32EOP\SQLEXPRESS;Database=NewsContext;Trusted_Connection=True; MultipleActiveResultSets=true;"));
+            services.AddDbContext<NewsContext>(option => option.UseSqlServer(@"Server=.;Database=NewsContext;Trusted_Connection=True; MultipleActiveResultSets=true;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,15 @@ namespace oxu.az
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("areaRoute", "{area:exists}/{controller=News}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
 
             app.UseEndpoints(endpoints =>
             {

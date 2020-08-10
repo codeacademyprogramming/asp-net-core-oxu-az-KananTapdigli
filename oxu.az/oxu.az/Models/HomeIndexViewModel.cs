@@ -7,7 +7,7 @@ namespace oxu.az.Models
 {
     public class HomeIndexViewModel
     {
-        public IQueryable<News> FeaturedNews { get; set; }
+        public List<News> FeaturedNews { get; set; }
         public List<News> GeneralNews { get; set; }
     }
 }

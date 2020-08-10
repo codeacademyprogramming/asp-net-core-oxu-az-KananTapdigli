@@ -15,14 +15,19 @@
 
 <body>
 
+    <div class="preloader-container">
+        <img src="~/images/813.gif" alt="preloader" class="preloader" />
+    </div>
+
     <header>
-        <div class="header-top d-flex align-items-center"
+        <div class="header-top d-flex align-items-center position-relative"
              style="background: url('@Url.Content("~/images/header-background.png")');">
             <div class="container">
                 <div class="row">
                     <div class="col-4 d-flex align-items-center">
                         <i class="fas fa-bars d-block d-lg-none mr-3 bar"></i>
-                        <img src="~/images/oxuaz.png" alt="">
+                        <a href="@Url.Action("Index","Home")"><img src="~/images/oxuaz.png" alt=""></a>
+                        <i class="fas fa-bars bar-scroll ml-2 d-none d-lg-block"></i>
                     </div>
                     <div class="col-12 col-sm-8 pb-2 pb-sm-0 d-flex align-items-center">
                         <a href="" class="about d-none d-lg-block">Haqqımızda</a>
@@ -33,34 +38,35 @@
                         <a href=""><i class="fab fa-apple apple icon d-none d-lg-block"></i></a>
                         <input type="text" placeholder="Axtarış" class="search-input ml-0 ml-sm-4 mt-2 mt-sm-0">
                         <i class="fas fa-search search-icon mt-2 mt-sm-0"></i>
+                        @Html.ActionLink("Adminlik", "Index", "News", new { Area = "Admin" }, new { @class = "btn btn-danger ml-5" })
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="d-none d-lg-block">
+        <nav class="d-none d-lg-block nav">
             <div class="nav-top">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <ul>
-                                <li><a href="">Baş Səhifə</a></li>
-                                <li><a href="">Siyasət</a></li>
-                                <li><a href="">İqtisadiyyat</a></li>
-                                <li><a href="">Cəmiyyət</a></li>
-                                <li><a href="">Şou-Biznes</a></li>
-                                <li><a href="">Müharibə</a></li>
-                                <li><a href="">İdman</a></li>
-                                <li><a href="">Kriminal</a></li>
-                                <li><a href="">Mədəniyyət</a></li>
-                                <li><a href="">Dünya</a></li>
-                                <li><a href="">Avto-Moto</a></li>
-                                <li><a href="">İKT</a></li>
-                                <li><a href="">Turizm</a></li>
-                                <li><a href="">Maraqlı</a></li>
-                                <li><a href="">Müsahibə</a></li>
-                                <li><a href="">Baku TV</a></li>
-                                <li><a href="">Cinema Plus</a></li>
-                            </ul>
+                            <div class="">
+                                <a href="@Url.Action("Index","Home")">Baş Səhifə</a>
+                                <a href="@Url.Action("Policy","Home")">Siyasət</a>
+                                <a href="@Url.Action("Economy","Home")">İqtisadiyyat</a>
+                                <a href="@Url.Action("Society","Home")">Cəmiyyət</a>
+                                <a href="@Url.Action("ShowBusiness","Home")">Şou-Biznes</a>
+                                <a href="@Url.Action("War","Home")">Müharibə</a>
+                                <a href="@Url.Action("Sport","Home")">İdman</a>
+                                <a href="@Url.Action("Criminal","Home")">Kriminal</a>
+                                <a href="@Url.Action("Culture","Home")">Mədəniyyət</a>
+                                <a href="@Url.Action("World","Home")">Dünya</a>
+                                <a href="@Url.Action("Avto","Home")">Avto-Moto</a>
+                                <a href="@Url.Action("IKT","Home")">IKT</a>
+                                <a href="@Url.Action("Tourism","Home")">Turizm</a>
+                                <a href="@Url.Action("Interesting","Home")">Maraqlı</a>
+                                <a href="@Url.Action("Interview","Home")">Müsahibə</a>
+                                <a href="@Url.Action("BakuTV","Home")">Baku TV</a>
+                                <a href="@Url.Action("CinemaPlus","Home")">Cinema Plus</a>
+                            </div>
                         </div>
 
                     </div>
@@ -75,7 +81,7 @@
                         <div class="col-4 pl-0 pr-0 ">
                             <a href="" class="corona-online text-center h-100">Koronavirus Onlayn Statistika</a>
                         </div>
-                        <a href="" class="col-3 pl-0 pr-0 all-news d-none d-lg-inline-block text-center">
+                        <a href="@Url.Action("AllNews","Home")" class="col-3 pl-0 pr-0 all-news d-none d-lg-inline-block text-center">
                             Bütün
                             xəbərlər
                         </a>
@@ -98,23 +104,23 @@
         </nav>
 
         <nav class="burger-menu d-block d-lg-none">
-            <a class="nav-item" href="/" style="background: url('@Url.Content("~/images/header-background.png")');">Baş səhifə</a>
-            <a class="nav-item" href="/politics" style="background: url('@Url.Content("~/images/header-background.png")');">Siyasət</a>
-            <a class="nav-item" href="/economy" style="background: url('@Url.Content("~/images/header-background.png")');">İqtisadiyyat</a>
-            <a class="nav-item" href="/society" style="background: url('@Url.Content("~/images/header-background.png")');">Cəmiyyət</a>
-            <a class="nav-item" href="/showbiz" style="background: url('@Url.Content("~/images/header-background.png")');">Şou-biznes</a>
-            <a class="nav-item" href="/war" style="background: url('@Url.Content("~/images/header-background.png")');">Müharibə</a>
-            <a class="nav-item" href="/sport" style="background: url('@Url.Content("~/images/header-background.png")');">İdman</a>
-            <a class="nav-item" href="/criminal" style="background: url('@Url.Content("~/images/header-background.png")');">Kriminal</a>
-            <a class="nav-item" href="/culture" style="background: url('@Url.Content("~/images/header-background.png")');">Mədəniyyət</a>
-            <a class="nav-item" href="/world" style="background: url('@Url.Content("~/images/header-background.png")');">Dünya</a>
-            <a class="nav-item" href="/auto-moto" style="background: url('@Url.Content("~/images/header-background.png")');">Avto-Moto</a>
-            <a class="nav-item" href="/ict" style="background: url('@Url.Content("~/images/header-background.png")');">İKT</a>
-            <a class="nav-item" href="/turism" style="background: url('@Url.Content("~/images/header-background.png")');">Turizm</a>
-            <a class="nav-item" href="/interesting" style="background: url('@Url.Content("~/images/header-background.png")');">Maraqlı</a>
-            <a class="nav-item" href="/interview" style="background: url('@Url.Content("~/images/header-background.png")');">Müsahibə</a>
-            <a class="nav-item" href="/tv" style="background: url('@Url.Content("~/images/header-background.png")');">Baku TV</a>
-            <a class="nav-item" href="/cinemaplus" style="background: url('@Url.Content("~/images/header-background.png")');">CinemaPlus</a>
+            <a class="nav-item" href="@Url.Action("Index","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Baş səhifə</a>
+            <a class="nav-item" href="@Url.Action("Policy","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Siyasət</a>
+            <a class="nav-item" href="@Url.Action("Economy","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">İqtisadiyyat</a>
+            <a class="nav-item" href="@Url.Action("Society","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Cəmiyyət</a>
+            <a class="nav-item" href="@Url.Action("ShowBusiness","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Şou-biznes</a>
+            <a class="nav-item" href="@Url.Action("War","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Müharibə</a>
+            <a class="nav-item" href="@Url.Action("Sport","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">İdman</a>
+            <a class="nav-item" href="@Url.Action("Criminal","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Kriminal</a>
+            <a class="nav-item" href="@Url.Action("Culture","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Mədəniyyət</a>
+            <a class="nav-item" href="@Url.Action("World","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Dünya</a>
+            <a class="nav-item" href="@Url.Action("Avto","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Avto-Moto</a>
+            <a class="nav-item" href="@Url.Action("IKT","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">İKT</a>
+            <a class="nav-item" href="@Url.Action("Tourism","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Turizm</a>
+            <a class="nav-item" href="@Url.Action("Interesting","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Maraqlı</a>
+            <a class="nav-item" href="@Url.Action("Interview","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Müsahibə</a>
+            <a class="nav-item" href="@Url.Action("BakuTV","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">Baku TV</a>
+            <a class="nav-item" href="@Url.Action("CinemaPlus","Home")" style="background: url('@Url.Content("~/images/header-background.png")');">CinemaPlus</a>
         </nav>
     </header>
 
@@ -134,6 +140,8 @@
     </footer>
 
 
+
+
     <!--scripts start-->
     <!--jquery-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -141,6 +149,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!--javascript-->
     <script src="~/js/script.js"></script>
+    <!--Stat-->
+    <partial name="_Stat.cshtml" />
     <!--scripts end-->
     @RenderSection("scripts", required: false)
 </body>

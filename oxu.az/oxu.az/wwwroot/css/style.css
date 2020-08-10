@@ -1,6 +1,16 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+body {
+    overflow: hidden;
+}
+
+.fixed{
+    position: fixed;
+    top:0;
+    z-index: 999;
+    width: 100%;
+}
 
 a.navbar-brand {
     white-space: normal;
@@ -149,6 +159,28 @@ a {
     }
 }
 
+.preloader-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 999;
+    background-color: white;
+}
+
+    .preloader-container .preloader {
+        position: absolute;
+        top: 45%;
+        left: 48%;
+    }
+
+
+header {
+    top: -150px;
+    transition: top 0.5s;
+}
+
+
 header .header-top {
     height: auto;
     padding: 8px;
@@ -157,6 +189,14 @@ header .header-top {
     header .header-top .bar {
         color: white;
         font-size: 20px;
+    }
+
+    .bar-scroll{
+        display: none;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        z-index: -1;
     }
 
     header .header-top .about,
@@ -186,31 +226,35 @@ header .header-top {
         cursor: pointer;
     }
 
+
+    nav{
+        position: relative;
+        transition: 0.5s; 
+    }
+
 header nav .nav-top,
 header nav .nav-center {
     background-color: #222222;
 }
 
-    header nav .nav-top li:hover,
-    header nav .nav-center li:hover {
+    header nav .nav-top div a:hover
+     {
         background-color: #454545;
     }
 
-    header nav .nav-top ul li,
-    header nav .nav-center ul li,
-    header nav .nav-bottom ul li {
-        display: inline;
+    header nav .nav-top div a
+    {
+        display: inline-block;
         color: white;
-        padding: 10px;
+        padding: 0px 10px;
         margin-right: 10px;
         line-height: 45px;
         font-weight: bold;
         cursor: pointer;
     }
 
-        header nav .nav-top ul li:hover,
-        header nav .nav-center ul li:hover,
-        header nav .nav-bottom ul li:hover {
+        header nav .nav-top div a
+        {
             -webkit-transition: .3s all linear;
             transition: .3s all linear;
         }
@@ -269,13 +313,14 @@ header nav .nav-bottom {
         .frame .lent img {
             width: 100%;
             object-fit: cover;
-            height:100%;
+            height: 100%;
             max-width: 100%;
         }
 
         .frame .lent .title {
             position: absolute;
             bottom: 35px;
+            word-break: break-all;
         }
 
             .frame .lent .title .title-date {
@@ -317,8 +362,14 @@ header nav .nav-bottom {
     width: 100%;
 }
 
+    .main-bottom .item-photo img {
+        object-fit: cover;
+        height: 100%;
+    }
+
     .main-bottom .item-photo .when {
         opacity: 0.9;
+        top: 0;
     }
 
         .main-bottom .item-photo .when .date {
@@ -328,12 +379,13 @@ header nav .nav-bottom {
         }
 
 .main-bottom .item-title {
-    height: 125px;
+    height: 150px;
     padding: 15px 20px 25px 20px;
     border: 1px solid #dddddd;
     color: #13317F;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 19px;
+    word-break: break-all;
 }
 
 .main-bottom .like,
@@ -369,7 +421,25 @@ main .news-title {
     font-size: 32px;
     color: #13317F;
     font-weight: bold;
+    word-break: break-all;
 }
+
+main .news-like {
+    color: #028F1D;
+}
+
+main .news-unlike {
+    color: #DE0201;
+}
+
+main .news-view {
+    color: grey;
+}
+
+main .news-text {
+    word-break: break-all;
+}
+
 
 main .when-news {
     top: 0;
@@ -405,7 +475,7 @@ main .when {
     }
 
 main .stats {
-    top: 500px;
+    top: 400px;
 }
 
     main .stats div {

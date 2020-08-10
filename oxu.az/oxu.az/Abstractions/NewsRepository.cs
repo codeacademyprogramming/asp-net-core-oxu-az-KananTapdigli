@@ -32,35 +32,40 @@ namespace oxu.az.Models
             _context.SaveChanges();
         }
 
+        public void EditNewsStat(News news)
+        {
+            UpdateDb(news);
+        }
+
         public void EditNews(News news)
         {
-            var _news = _context.News.Find(news.Id);
+            var activeNews = _context.News.Find(news.Id);
 
-            _news.FileName = news.FileName;
-            _news.CategoryId = news.CategoryId;
-            _news.Content = news.Content;
-            _news.Title = news.Title;
-            _news.isMain = news.isMain;
+            news.Like = activeNews.Like;
+            news.Unlike = activeNews.Unlike;
+            news.View = activeNews.View;
 
-            _context.SaveChanges();
+            UpdateDb(news);
         }
+
+     
 
         public List<News> GetAllNews()
         {
-            var news = _context.News.Include("Category").ToList();
+            var news = _context.News.Include("Category").OrderByDescending(n => n.CreationTime).ToList();
 
             return news;
         }
 
-        public IQueryable<News> GetCategoryNews(int CategoryId)
+        public List<News> GetCategoryNews(string CategoryName)
         {
-            var news = _context.News.Include("Category").Where(n => n.CategoryId == CategoryId);
+            var news = _context.News.Include("Category").Where(n => n.Category.Name == CategoryName).OrderByDescending(n => n.CreationTime).ToList();
             return news;
         }
 
-        public IQueryable<News> GetFeaturedNews()
+        public List<News> GetFeaturedNews()
         {
-            var featuredNews = _context.News.Where(n => n.isMain == true).OrderByDescending(n=>n.CreationTime).Take(5);
+            var featuredNews = _context.News.Where(n => n.isMain == true).OrderByDescending(n => n.CreationTime).Take(5).ToList();
             return featuredNews;
         }
 
@@ -68,6 +73,14 @@ namespace oxu.az.Models
         {
             var news = _context.News.Include("Category").FirstOrDefault(n => n.Id == Id);
             return news;
+        }
+
+        public void UpdateDb(News news)
+        {
+            _context.ChangeTracker.Entries().Where(e => e.Entity != null).ToList().ForEach(e => e.State = EntityState.Detached);
+            _context.Entry(news).State = EntityState.Modified;
+
+            _context.SaveChanges();
         }
     }
 }

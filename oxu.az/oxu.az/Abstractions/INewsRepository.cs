@@ -13,16 +13,18 @@ namespace oxu.az.Abstractions
 
         List<News> GetAllNews();
 
-        IQueryable<News> GetCategoryNews(int CategoryId);
+        List<News> GetCategoryNews(string CategoryName);
 
         void  AddNews(News news);
 
         void EditNews(News news);
 
+        void EditNewsStat(News news);
+
         void DeleteNews(int? Id);
 
 
-        IQueryable<News> GetFeaturedNews();
+        List<News> GetFeaturedNews();
 
     }
 }

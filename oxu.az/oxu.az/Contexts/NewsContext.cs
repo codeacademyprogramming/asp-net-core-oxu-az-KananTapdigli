@@ -36,7 +36,12 @@ namespace oxu.az.Contexts
             modelBuilder.Entity<Category>().HasData(new Category { Id = 15, Name = "Baku TV" });
             modelBuilder.Entity<Category>().HasData(new Category { Id = 16, Name = "Cinema Plus" });
 
+            modelBuilder.Entity<Category>()
+        .HasIndex(c => c.Name)
+        .IsUnique();
+
         }
+
 
         public DbSet<News> News { get; set; }
         public DbSet<Category> Categories { get; set; }

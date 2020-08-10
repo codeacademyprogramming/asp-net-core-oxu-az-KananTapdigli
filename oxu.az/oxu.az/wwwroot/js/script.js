@@ -1,9 +1,8 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
+﻿
 $(function () {
+
+    $(".preloader-container").fadeOut(1000);
+    $("body").css("overflow", "visible");
 
     let totalWidth = $(".lent a").length * 100;
 
@@ -12,7 +11,7 @@ $(function () {
 
     let imgCount = $(".lent a").length;
 
-    let width = $(".lent a").width();
+    let width = $(".frame").width();
 
 
     let position = 0;
@@ -65,51 +64,7 @@ $(function () {
     }, 5000)
 
     $(".title").css("max-width", width);
-    $(".lent a").css("width",width);
-
-    $(document).on("click", ".like", function () {
-
-        $(this).css({
-            "background-color": "white",
-            "color": "#028F1D"
-        })
-
-        $(this).parent().parent().css("pointer-events", "none");
-
-    })
-
-    $(document).on("click", ".unlike", function () {
-        $(this).css({
-            "background-color": "white",
-            "color": "#DE0201"
-        })
-
-        $(this).parent().parent().css("pointer-events", "none");
-
-    })
-
-    $(document).on("click", ".like-stat", function () {
-
-        $(".like-stat").css("box-shadow", "inset 0 0 5px black")
-
-        $(".stats").css("pointer-events", "none");
-
-        $(".stats-mobile").css("pointer-events", "none");
-
-
-    })
-
-    $(document).on("click", ".unlike-stat", function () {
-
-        $(".unlike-stat").css("box-shadow", "inset 0 0 5px black")
-
-        $(".stats").css("pointer-events", "none");
-
-        $(".stats-mobile").css("pointer-events", "none");
-
-
-
-    })
+    $(".lent a").css("width", width);
 
 
     $(document).on("click", ".bar", function () {
@@ -133,6 +88,28 @@ $(function () {
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 
+    $(window).scroll(function () {
+        var height = $(window).scrollTop();
 
+        if (height > $('header').outerHeight()) {
+            $('header').addClass('fixed');
+            $('.nav').css({ "top": "-300px", "z-index": "-1"});
+            $('.bar-scroll').css("z-index", "1")
+        } else {
+            $('header').removeClass('fixed');
+            $('.nav').css({ "top": "0", "z-index": "0" });
+            $('.bar-scroll').css("z-index", "-1")
+        }
+    });
+
+    $(document).on("click", ".bar-scroll", function () {
+
+        if ($('.nav').css("top") == '0px') {
+            $('.nav').css("top", "-300px");
+        }
+        else {
+            $('.nav').css("top", "0");
+        }
+    })
 
 });
