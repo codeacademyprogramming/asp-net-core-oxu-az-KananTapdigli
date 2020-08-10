@@ -70,6 +70,23 @@
             })
         })
 
+        $(document).on("click", ".news-featured", function () {
+
+            var element = $(this);
+
+            var data = {
+                NewsId: $(this).attr("id")
+            }
+
+            $.ajax({
+                url: "@Url.Action("View","News")",
+                data: data,
+                success: function (data) {
+                    $(element).children().eq(1).children().children().eq(2).text(data);
+                }
+            })
+        })
+
          $(document).on("click", ".like-stat", function () {
 
         $(".like-stat").css("box-shadow", "inset 0 0 5px black")

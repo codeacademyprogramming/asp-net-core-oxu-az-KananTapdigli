@@ -34,7 +34,7 @@ namespace oxu.az
 
             services.AddScoped(typeof(ICategoryRepository), typeof(CategoryRepository));
 
-            services.AddDbContext<NewsContext>(option => option.UseSqlServer(@"Server=.;Database=NewsContext;Trusted_Connection=True; MultipleActiveResultSets=true;"));
+            services.AddDbContext<NewsContext>(option => option.UseSqlServer(@"Server=DESKTOP-OR32EOP\SQLEXPRESS;Database=NewsContext;Trusted_Connection=True; MultipleActiveResultSets=true;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

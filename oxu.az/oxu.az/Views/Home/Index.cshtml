@@ -8,7 +8,7 @@
                     <div class="lent d-flex position-relative">
                         @foreach (var News in Model.FeaturedNews)
                         {
-                            <a href="@Url.Action("News","Home",new { Id = News.Id })">
+                            <a href="@Url.Action("News","Home",new { Id = News.Id })" id="@News.Id" class="news-featured" target="_blank">
                                 <img src="~/images/@News.FileName" alt="">
 
                                 <div class="title">
